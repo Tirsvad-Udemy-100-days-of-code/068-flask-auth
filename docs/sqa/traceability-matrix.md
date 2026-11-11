@@ -24,7 +24,7 @@ updated whenever an artifact instance is created or reviewed.
 | Artifact Instance | Type | Language | Domain | Upstream (Backward Link) | Downstream (Forward Link) | Last Reviewed (RC-ID) |
 | --- | --- | --- | --- | --- | --- | --- |
 | [BC-001] | BC | en | it | - | [SA-001], [PP-001] | [RC-008] |
-| [SA-001] | SA | en | it | [BC-001] | [PP-001] | [RC-002] |
+| [SA-001] | SA | en | it | [BC-001] | [PP-001] | [RC-011] |
 | [PP-001] | PP | en | it | [BC-001], [SA-001] | [MIL-001], [MIL-002], [MIL-003], [MIL-004] | [RC-009] |
 | [MIL-001] | MIL | en | it | [PP-001] | - | [RC-003] |
 | [MIL-002] | MIL | en | it | [MIL-001] | - | [RC-004] |
@@ -69,4 +69,5 @@ Types with no instance yet have no row. `-` in Upstream means foundational, in D
 [RC-008]: ./reviews/rc-008-bc.md
 [RC-009]: ./reviews/rc-009-pp.md
 [RC-010]: ./reviews/rc-010-mil-004.md
+[RC-011]: ./reviews/rc-011-sa.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd
