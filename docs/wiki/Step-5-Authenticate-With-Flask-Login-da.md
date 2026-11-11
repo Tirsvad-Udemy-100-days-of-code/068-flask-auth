@@ -24,6 +24,8 @@ def secrets():
     return render_template("secrets.html", name=current_user.name, logged_in=True)
 ```
 
+I dette repository accepterer `/logout` kun POST. Menupunktet "Log Out" er en lille formular med CSRF-token, og `GET /logout` giver 405. Det afviger fra lektionen, hvor logout er et almindeligt link, fordi en GET, der ændrer tilstand, kan udløses fra et andet site.
+
 ## Sådan ser det ud
 
 ![/secrets uden login afvises](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/raw/branch/main/docs/images/step-05a-secrets-requires-login.png)

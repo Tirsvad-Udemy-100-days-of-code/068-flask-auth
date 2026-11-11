@@ -14,7 +14,9 @@ from flask_auth.constants import (
     FIELD_EMAIL,
     FIELD_NAME,
     FIELD_PASSWORD,
+    PATH_HOME,
     PATH_LOGIN,
+    PATH_LOGOUT,
     PATH_REGISTER,
 )
 from flask_auth.infrastructure.extensions import db
@@ -92,4 +94,12 @@ def login(
             FIELD_PASSWORD: password,
             FIELD_CSRF_TOKEN: fetch_csrf_token(client, PATH_LOGIN),
         },
+    )
+
+
+def logout(client: FlaskClient) -> TestResponse:
+    """Log out through the navbar form, with its token; return the POST response."""
+    return client.post(
+        PATH_LOGOUT,
+        data={FIELD_CSRF_TOKEN: fetch_csrf_token(client, PATH_HOME)},
     )

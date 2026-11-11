@@ -24,6 +24,8 @@ def secrets():
     return render_template("secrets.html", name=current_user.name, logged_in=True)
 ```
 
+Dalam repositori ini `/logout` hanya menerima POST. Item "Log Out" dalam bar navigasi ialah borang kecil yang membawa token CSRF, dan `GET /logout` memberi 405. Ini berbeza daripada kuliah, tempat logout ialah pautan biasa, kerana GET yang mengubah keadaan boleh dicetuskan dari tapak lain.
+
 ## Rupanya
 
 ![/secrets tanpa log masuk ditolak](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/raw/branch/main/docs/images/step-05a-secrets-requires-login.png)
