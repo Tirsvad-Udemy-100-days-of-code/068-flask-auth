@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version<br>Reviewed in RC-023: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version<br>Reviewed in RC-023: Go | [7bcae68] |
 
 ---
 
@@ -79,3 +79,4 @@ Bootstrap 5 loaded in `base.html`, a small own stylesheet in `presentation/stati
 
 [BC-001]: ../business-case.md
 [MIL-006]: ./mil-006-logout-post.md
+[7bcae68]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/7bcae6888254fa93645246583d461a8d2c31334a

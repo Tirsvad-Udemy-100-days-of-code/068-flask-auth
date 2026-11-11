@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [7bcae68] |
 
 ---
 
@@ -82,3 +82,4 @@ Go — every Mandatory criterion of [QC-PY-001] passes. This closes criteria 1 t
 [RC-015]: ./rc-015-mil-004-code-rereview.md
 [RC-018]: ./rc-018-mil-005-code.md
 [RC-021]: ./rc-021-mil-006-code.md
+[7bcae68]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/7bcae6888254fa93645246583d461a8d2c31334a
