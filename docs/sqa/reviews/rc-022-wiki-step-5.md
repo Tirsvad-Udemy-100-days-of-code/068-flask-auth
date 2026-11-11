@@ -39,19 +39,19 @@
 | 11 | Every page starts with the language line | Pass | Unchanged. |
 | 12 | Non-English pages are named `<Page>-<code>.md` | Pass | Unchanged. |
 | 13 | Code blocks, commands, file names and IDs stay in English | Pass | The added paragraph keeps `/logout`, `GET`, `POST` and `CSRF` in English. |
-| 14 | The change was checked on the published wiki after the merge | Open | Cannot be checked before the merge; the published pages are checked after it. |
+| 14 | The change was checked on the published wiki after the merge | Pass | On 2026-11-11, after the merge of pull request 37, the host API listed 25 wiki pages, the same set as `docs/wiki/`. The three Step 5 pages (en, da, ms) returned HTTP 200 and contain the new POST-only logout paragraph, and no internal link on them points to a missing page. |
 | 15 | A layout change is made in the generator and the checklist | Pass | No layout rule changed. |
 | 16 | The wiki folder is flat | Pass | All files directly in `docs/wiki/`. |
 
 ## Overall Verdict
 
-Go once criterion 14 is closed: every other Mandatory criterion passes, and criterion 14 can be checked only on the published wiki after the merge. Criterion 7 is N-A because no generator produces the sidebar.
+Go — every Mandatory criterion passes; criterion 14 was closed after the merge by checking the published wiki. Criterion 7 is N-A because no generator produces the sidebar.
 
 ## Action Items
 
 | Action | Owner | Due |
 | --- | --- | --- |
-| Check the three Step 5 pages on the published wiki after the merge and record criterion 14 | S01 | After the merge |
+| None (the published-wiki check is done) | S01 | |
 
 ---
 
