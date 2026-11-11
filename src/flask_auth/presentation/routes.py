@@ -63,27 +63,39 @@ ERROR_MESSAGES: dict[type[Exception], str] = {
 }
 
 
-def create_blueprint(
-    register_user: RegisterUser, authenticate_user: AuthenticateUser
-) -> Blueprint:
+class AuthController:
     """!
-    @brief Build the blueprint around the given use cases.
-    @param register_user Use case that registers a user.
-    @param authenticate_user Use case that checks credentials.
-    @return The blueprint with all routes.
+    @brief Views for registration, login, the secret page and the download.
     """
-    main = Blueprint(BLUEPRINT_NAME, __name__, template_folder="templates")
-    download_directory = Path(main.root_path) / DOWNLOAD_DIRECTORY
 
-    @main.route(PATH_HOME)
-    def home() -> str:
+    def __init__(
+        self,
+        register_user: RegisterUser,
+        authenticate_user: AuthenticateUser,
+        download_directory: Path,
+    ) -> None:
+        """!
+        @param register_user Use case that registers a user.
+        @param authenticate_user Use case that checks credentials.
+        @param download_directory Folder holding the downloadable file.
+        """
+        self._register_user = register_user
+        self._authenticate_user = authenticate_user
+        self._download_directory = download_directory
+
+    def home(self) -> str:
+        """!
+        @brief Show the home page.
+        """
         return render_template(TEMPLATE_INDEX, logged_in=current_user.is_authenticated)
 
-    @main.route(PATH_REGISTER, methods=["GET", "POST"])
-    def register() -> str | Response | tuple[str, int]:
+    def register(self) -> str | Response | tuple[str, int]:
+        """!
+        @brief Show the registration form, or register the posted user.
+        """
         if request.method == "POST":
             try:
-                user = register_user.execute(
+                user = self._register_user.execute(
                     request.form.get(FIELD_NAME, ""),
                     request.form.get(FIELD_EMAIL, ""),
                     request.form.get(FIELD_PASSWORD, ""),
@@ -101,11 +113,13 @@ def create_blueprint(
             TEMPLATE_REGISTER, logged_in=current_user.is_authenticated
         )
 
-    @main.route(PATH_LOGIN, methods=["GET", "POST"])
-    def login() -> str | Response:
+    def login(self) -> str | Response:
+        """!
+        @brief Show the login form, or log in the posted credentials.
+        """
         if request.method == "POST":
             try:
-                user = authenticate_user.execute(
+                user = self._authenticate_user.execute(
                     request.form.get(FIELD_EMAIL, ""),
                     request.form.get(FIELD_PASSWORD, ""),
                 )
@@ -116,19 +130,44 @@ def create_blueprint(
                 return redirect(url_for(ENDPOINT_SECRETS))
         return render_template(TEMPLATE_LOGIN, logged_in=current_user.is_authenticated)
 
-    @main.route(PATH_SECRETS)
-    @login_required
-    def secrets() -> str:
+    def secrets(self) -> str:
+        """!
+        @brief Show the secret page (login required, see the blueprint).
+        """
         return render_template(TEMPLATE_SECRETS, name=current_user.name, logged_in=True)
 
-    @main.route(PATH_LOGOUT)
-    def logout() -> Response:
+    def logout(self) -> Response:
+        """!
+        @brief Log out and go to the home page.
+        """
         logout_user()
         return redirect(url_for(ENDPOINT_HOME))
 
-    @main.route(PATH_DOWNLOAD)
-    @login_required
-    def download() -> Response:
-        return send_from_directory(download_directory, DOWNLOAD_FILENAME)
+    def download(self) -> Response:
+        """!
+        @brief Send the cheat sheet (login required, see the blueprint).
+        """
+        return send_from_directory(self._download_directory, DOWNLOAD_FILENAME)
 
+
+def create_blueprint(
+    register_user: RegisterUser, authenticate_user: AuthenticateUser
+) -> Blueprint:
+    """!
+    @brief Build the blueprint around the given use cases.
+    @param register_user Use case that registers a user.
+    @param authenticate_user Use case that checks credentials.
+    @return The blueprint with all routes.
+    """
+    main = Blueprint(BLUEPRINT_NAME, __name__, template_folder="templates")
+    controller = AuthController(
+        register_user, authenticate_user, Path(main.root_path) / DOWNLOAD_DIRECTORY
+    )
+    both = ["GET", "POST"]
+    main.add_url_rule(PATH_HOME, "home", controller.home)
+    main.add_url_rule(PATH_REGISTER, "register", controller.register, methods=both)
+    main.add_url_rule(PATH_LOGIN, "login", controller.login, methods=both)
+    main.add_url_rule(PATH_SECRETS, "secrets", login_required(controller.secrets))
+    main.add_url_rule(PATH_LOGOUT, "logout", controller.logout)
+    main.add_url_rule(PATH_DOWNLOAD, "download", login_required(controller.download))
     return main

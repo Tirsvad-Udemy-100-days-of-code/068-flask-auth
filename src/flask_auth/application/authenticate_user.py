@@ -38,7 +38,7 @@ class AuthenticateUser:
             logger.warning("Login failed: unknown email")
             raise UnknownEmailError
         if not self._hasher.verify(user.password_hash, plain_password):
-            logger.warning("Login failed: wrong password for user id=%s", user.id)
+            logger.warning("Login rejected for user id=%s", user.id)
             raise WrongPasswordError
         logger.info("Login succeeded: user id=%s", user.id)
         return user
