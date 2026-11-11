@@ -23,12 +23,13 @@ updated whenever an artifact instance is created or reviewed.
 
 | Artifact Instance | Type | Language | Domain | Upstream (Backward Link) | Downstream (Forward Link) | Last Reviewed (RC-ID) |
 | --- | --- | --- | --- | --- | --- | --- |
-| [BC-001] | BC | en | it | - | [SA-001], [PP-001] | [RC-001] |
+| [BC-001] | BC | en | it | - | [SA-001], [PP-001] | [RC-008] |
 | [SA-001] | SA | en | it | [BC-001] | [PP-001] | [RC-002] |
-| [PP-001] | PP | en | it | [BC-001], [SA-001] | [MIL-001], [MIL-002], [MIL-003] | [RC-006] |
+| [PP-001] | PP | en | it | [BC-001], [SA-001] | [MIL-001], [MIL-002], [MIL-003], [MIL-004] | [RC-009] |
 | [MIL-001] | MIL | en | it | [PP-001] | - | [RC-003] |
 | [MIL-002] | MIL | en | it | [MIL-001] | - | [RC-004] |
-| [MIL-003] | MIL | en | it | [MIL-002] | - | [RC-005] |
+| [MIL-003] | MIL | en | it | [MIL-002] | [MIL-004] | [RC-005] |
+| [MIL-004] | MIL | en | it | [MIL-003], [BC-001] | - | [RC-010] |
 
 ## Concern Coverage
 
@@ -58,10 +59,14 @@ Types with no instance yet have no row. `-` in Upstream means foundational, in D
 [MIL-001]: ../milestones/mil-001-project-setup.md
 [MIL-002]: ../milestones/mil-002-readme.md
 [MIL-003]: ../milestones/mil-003-wiki.md
+[MIL-004]: ../milestones/mil-004-flask-app.md
 [RC-001]: ./reviews/rc-001-bc.md
 [RC-002]: ./reviews/rc-002-sa.md
 [RC-003]: ./reviews/rc-003-mil-001.md
 [RC-004]: ./reviews/rc-004-mil-002.md
 [RC-005]: ./reviews/rc-005-mil-003.md
 [RC-006]: ./reviews/rc-006-pp.md
+[RC-008]: ./reviews/rc-008-bc.md
+[RC-009]: ./reviews/rc-009-pp.md
+[RC-010]: ./reviews/rc-010-mil-004.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd

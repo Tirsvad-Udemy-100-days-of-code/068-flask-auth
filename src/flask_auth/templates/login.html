@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Login</h1>
+{% with messages = get_flashed_messages() %}
+  {% for message in messages %}
+    <p class="flash">{{ message }}</p>
+  {% endfor %}
+{% endwith %}
+<form action="{{ url_for('main.login') }}" method="post">
+  <p><label>Email <input type="email" name="email" required></label></p>
+  <p><label>Password <input type="password" name="password" required></label></p>
+  <p><input type="submit" value="Let me in."></p>
+</form>
+{% endblock %}

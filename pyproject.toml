@@ -5,15 +5,23 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "flask-auth-day-68"
 version = "0.1.0"
-description = "Udemy 100 Days of Code, Day 68: Flask authentication walkthrough (README and wiki)."
+description = "Udemy 100 Days of Code, Day 68: Flask authentication app with README and wiki."
 readme = "README.md"
 requires-python = ">=3.13"
 license = "AGPL-3.0-only"
-# No runtime dependencies: this repository documents the lecture only.
-dependencies = []
+dependencies = [
+    "Flask>=3.0",
+    "Flask-Login>=0.6.3",
+    "Flask-SQLAlchemy>=3.1.1",
+    "SQLAlchemy>=2.0.36",
+    "Werkzeug>=3.0",
+]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
+
+[tool.setuptools.package-data]
+flask_auth = ["templates/*.html", "static/files/*"]
 
 [tool.setuptools]
 package-dir = { "" = "src" }

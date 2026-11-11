@@ -2,7 +2,7 @@
 
 # 🚀 Flask Auth (Day 68)
 
-A walkthrough of Day 68 of Udemy's "100 Days of Code: The Complete Python Pro Bootcamp": user authentication in Flask. It is written for course participants who want to compare solutions and for visitors looking for ideas. This repository holds documentation and project configuration only; it has no runtime dependencies.
+A walkthrough of Day 68 of Udemy's "100 Days of Code: The Complete Python Pro Bootcamp": user authentication in Flask. It is written for course participants who want to compare solutions and for visitors looking for ideas. This repository holds a working Flask application that implements the lecture steps, with pytest tests, plus the documentation and wiki that explain them.
 
 ## 📚 Table of Contents
 
@@ -21,8 +21,8 @@ The lecture builds a small Flask site where people register, log in, see a secre
 
 | Folder | Purpose |
 | --- | --- |
-| `src/` | Reserved for source code; empty, because this project does not program the lecture |
-| `tests/` | Reserved for pytest tests; empty for the same reason |
+| `src/flask_auth/` | The Flask application: factory, `User` model, routes, templates, static file |
+| `tests/` | pytest tests for registration, login, protected routes and flash messages |
 | `docs/` | Project documents, the step screenshots (`docs/images/`) and the wiki (`docs/wiki/`) |
 
 The [wiki][wiki] explains what each lecture step taught, in English, Danish and Bahasa Malaysia.
@@ -82,8 +82,8 @@ Routes pass `logged_in=current_user.is_authenticated` to the templates. `base.ht
 
 - Python 3.13 or newer.
 - `venv`, to keep the project's packages apart from the system Python.
-- pytest, only to run the (empty) test suite.
-- Doxygen, only to generate documentation of source code that a later phase may add (`Doxyfile`).
+- The packages declared in `pyproject.toml` (Flask, Flask-Login, Flask-SQLAlchemy, SQLAlchemy, Werkzeug); pytest for the tests.
+- Doxygen, only to generate documentation of the source code (`Doxyfile`).
 
 ## 🛠️ Setup
 
@@ -94,18 +94,20 @@ python -m venv .venv
 source .venv/bin/activate        # Linux and macOS
 .venv\Scripts\activate           # Windows (PowerShell or cmd)
 python -m pip install --upgrade pip
-python -m pip install pytest
+python -m pip install -e ".[dev]"
 ```
 
-The project has no runtime dependencies. To run the lecture's own end project, install its packages in the same `.venv`. On Python 3.13 use `SQLAlchemy>=2.0.36`, because the pinned `2.0.25` fails to import:
-
-```bash
-python -m pip install Flask==3.0.0 Werkzeug==3.0.0 Flask_Login==0.6.3 flask_sqlalchemy==3.1.1 "SQLAlchemy>=2.0.36"
-```
+Packages are installed from `pyproject.toml`. On Python 3.13 `SQLAlchemy>=2.0.36` is required, because `2.0.25` fails to import.
 
 ## ▶️ Run
 
-This repository does not contain the application. Read the steps above, or open the [wiki][wiki]. The end project is the course's own download; with its packages installed (see Setup) it starts with `python main.py` and serves `http://127.0.0.1:5000`.
+Start the development server from the activated `.venv`:
+
+```bash
+python -m flask_auth
+```
+
+It serves `http://127.0.0.1:5000` and creates `instance/users.db` on first start. Set `SECRET_KEY` (and optionally `DATABASE_URI`) in the environment for anything other than local use.
 
 ## 🧪 Tests
 
@@ -113,7 +115,7 @@ This repository does not contain the application. Read the steps above, or open 
 python -m pytest
 ```
 
-There are no tests yet, so pytest reports that no tests were collected (exit code 5).
+The tests use an in-memory SQLite database; nothing is written to disk.
 
 ## 📄 License
 

@@ -12,12 +12,13 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version<br>Reviewed in RC-001: Go | [4a5ddde] |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add the working Flask application to scope (objective 6)<br>Reviewed in RC-008: Go | pending |
 
 ---
 
 ## Executive Summary
 
-Day 68 of Udemy's "100 Days of Code: The Complete Python Pro Bootcamp" teaches user authentication in Flask: registering users, hashing and salting passwords, logging in with Flask-Login, flash messages and template-level authentication state. This project turns that lecture into a public learning reference: a README and a three-language wiki (English, Danish, Bahasa Malaysia) that explain each lecture step with a screenshot and say what was learned. No application code is delivered; the project holds documentation and project configuration only.
+Day 68 of Udemy's "100 Days of Code: The Complete Python Pro Bootcamp" teaches user authentication in Flask: registering users, hashing and salting passwords, logging in with Flask-Login, flash messages and template-level authentication state. This project turns that lecture into a public learning reference: a README and a three-language wiki (English, Danish, Bahasa Malaysia) that explain each lecture step with a screenshot and say what was learned. The project also delivers the working Flask application the lecture builds, with tests, so the documentation describes code the repository holds.
 
 ## Methodological and Standards Foundation
 
@@ -38,6 +39,7 @@ A single repository can show what each lecture step produces (a screenshot) and 
 3. Describe the repository on the git host with a description and topics.
 4. Provide project configuration (`pyproject.toml`, Python `.gitignore`, `Doxyfile`) that a later coding phase can use unchanged.
 5. Keep a traceable history: one branch and pull request per milestone.
+6. Deliver a working Flask authentication application (lecture steps 1 to 7) under `src/` with pytest tests under `tests/`.
 
 ## Scope
 
@@ -48,11 +50,11 @@ A single repository can show what each lecture step produces (a screenshot) and 
 - Screenshots of each lecture step, captured from the lecture's end project run in a Docker container.
 - Repository description and topics on the git host.
 - `pyproject.toml` (Python 3.13 or newer, pytest), Python `.gitignore`, `Doxyfile`, documented `.venv` setup with `python -m pip install --upgrade pip`.
+- The Flask application for lecture steps 1 to 7 in `src/flask_auth/`, with pytest tests in `tests/`.
 - A local opengrep scan before each push.
 
 ### Out of Scope
 
-- Writing application source code or tests under `src/` and `tests/` (the folders are reserved for a later phase).
 - Reproducing the lecture's video or course material beyond short descriptions and own screenshots.
 - Publishing the course resource archive in the repository.
 
@@ -104,7 +106,7 @@ The project supports the participant's learning goal in the bootcamp and the pra
 - Duration: the whole project is complete by 2026-11-16 (start 2026-11-11).
 - Python 3.13 or newer; a local `.venv`; pytest for tests; constants in `constants.py` when code is written.
 - Doxygen comments in any source code.
-- Documents live under `docs/`; `src/` and `tests/` stay empty in this project.
+- Documents live under `docs/`; application code lives under `src/` and tests under `tests/`.
 - Browser captures run in a container, never on the host desktop.
 
 ## Cost–Benefit Assessment
@@ -123,7 +125,7 @@ The project supports the participant's learning goal in the bootcamp and the pra
 
 ## Recommendation
 
-Proceed — the scope is small, documentation only, and the lecture content is already available.
+Proceed — the scope is small, and the lecture content is already available.
 
 ---
 
