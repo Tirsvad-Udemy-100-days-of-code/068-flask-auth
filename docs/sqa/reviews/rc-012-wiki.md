@@ -40,19 +40,19 @@
 | 11 | Every page starts with the language line, with the current language in bold and a link to the same page in each other language | Pass | All 24 pages start with the language line, current language in bold. |
 | 12 | A page in a language other than English is named `<Page>-<code>.md`, with a BCP 47 code; English has no suffix | Pass | Files are `<Page>-da.md` and `<Page>-ms.md`; English has no suffix. |
 | 13 | Code blocks, commands, file names and IDs stay in English in every language | Pass | Code blocks and commands are the same in all languages. |
-| 14 | The sidebar, every page and every link were checked on the published wiki after the change, not only in the repository | Open | Cannot be checked before the merge: the published wiki is checked after it (host page list, `Home` per language, links). |
+| 14 | The sidebar, every page and every link were checked on the published wiki after the change, not only in the repository | Pass | On 2026-11-11, after the merge of pull request 30, the host API listed 25 wiki pages (8 per language plus `_Sidebar`), the same set as `docs/wiki/`. `Home`, `Home-da` and `Home-ms` contain the new text (`presentation/routes.py`, `SECRET_KEY`) and no longer say documentation only. Seven rendered pages (the three `Home` pages, `_Sidebar` and one step page per language) returned HTTP 200, and all 14 screenshots returned 200. No internal link on `_Sidebar`, the three `Home` pages and `Step-3-Encryption-And-Hashing-ms` points to a missing page. Not every step page was fetched and link-checked on the host. |
 | 15 | A change to the layout rules (sections, order, naming) is made in the generator or template and in this checklist's source rules together | Pass | No layout rule changed. |
 | 16 | The wiki folder (`docs/wiki/`) is flat: every page, `Home.md` and `_Sidebar.md` included, is directly in it, and languages are told apart by file name, never by a subfolder | Pass | All 25 files are directly in `docs/wiki/`. |
 
 ## Overall Verdict
 
-Go once criterion 14 is closed: every other Mandatory criterion passes, and criterion 14 can be checked only on the published wiki after the merge. Criterion 7 is N-A because no generator produces the sidebar.
+Go — every Mandatory criterion passes; criterion 14 was closed after the merge by checking the published wiki. Criterion 7 is N-A because no generator produces the sidebar.
 
 ## Action Items
 
 | Action | Owner | Due |
 | --- | --- | --- |
-| Check the published wiki after the merge and record criterion 14 | S01 | After the merge |
+| None (the published-wiki check is done) | S01 | |
 
 ---
 
