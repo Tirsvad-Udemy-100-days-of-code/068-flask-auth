@@ -13,6 +13,7 @@ dependencies = [
     "Flask==3.1.3",
     "Flask-Login==0.6.3",
     "Flask-SQLAlchemy==3.1.1",
+    "Flask-WTF==1.3.0",
     "SQLAlchemy==2.1.8",
     "Werkzeug==3.1.9",
 ]
@@ -47,6 +48,12 @@ mypy_path = "src"
 # import is untyped. This override covers the import only.
 [[tool.mypy.overrides]]
 module = ["flask_login", "flask_login.*"]
+ignore_missing_imports = true
+
+# flask_wtf 1.3.0 ships no py.typed marker and no stubs, so its import is untyped.
+# This override covers the import only; only infrastructure/extensions.py uses it.
+[[tool.mypy.overrides]]
+module = ["flask_wtf", "flask_wtf.*"]
 ignore_missing_imports = true
 
 # Because flask_login is untyped, UserMixin, login_required and user_loader are

@@ -26,6 +26,8 @@ PATH_DOWNLOAD = "/download"
 FIELD_NAME = "name"
 FIELD_EMAIL = "email"
 FIELD_PASSWORD = "password"
+# The templates repeat this name in their hidden input; Flask-WTF reads it by default.
+FIELD_CSRF_TOKEN = "csrf_token"
 
 TEMPLATE_INDEX = "index.html"
 TEMPLATE_LOGIN = "login.html"

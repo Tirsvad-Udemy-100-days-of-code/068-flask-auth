@@ -6,7 +6,9 @@ from flask.testing import FlaskClient
 from sqlalchemy import select
 
 from flask_auth.constants import (
+    FIELD_CSRF_TOKEN,
     FIELD_EMAIL,
+    FIELD_NAME,
     FIELD_PASSWORD,
     MSG_ALREADY_REGISTERED,
     MSG_EMAIL_UNKNOWN,
@@ -17,11 +19,12 @@ from flask_auth.constants import (
     PATH_HOME,
     PATH_LOGIN,
     PATH_LOGOUT,
+    PATH_REGISTER,
     PATH_SECRETS,
 )
 from flask_auth.infrastructure.extensions import db
 from flask_auth.infrastructure.models import UserRecord
-from tests.e2e.conftest import register
+from tests.e2e.conftest import fetch_csrf_token, login, register
 from tests.support import (
     TEST_EMAIL,
     TEST_NAME,
@@ -85,9 +88,7 @@ def test_logged_in_user_can_download_file(client: FlaskClient) -> None:
 def test_login_succeeds_and_logout_ends_session(client: FlaskClient) -> None:
     register(client)
     client.get(PATH_LOGOUT)
-    response = client.post(
-        PATH_LOGIN, data={FIELD_EMAIL: TEST_EMAIL, FIELD_PASSWORD: TEST_PASSWORD}
-    )
+    response = login(client)
     assert response.status_code == 302
     assert client.get(PATH_SECRETS).status_code == 200
     client.get(PATH_LOGOUT)
@@ -95,19 +96,14 @@ def test_login_succeeds_and_logout_ends_session(client: FlaskClient) -> None:
 
 
 def test_login_flashes_message_for_unknown_email(client: FlaskClient) -> None:
-    response = client.post(
-        PATH_LOGIN, data={FIELD_EMAIL: TEST_UNKNOWN_EMAIL, FIELD_PASSWORD: "x"}
-    )
+    response = login(client, email=TEST_UNKNOWN_EMAIL, password="x")
     assert MSG_EMAIL_UNKNOWN.encode() in response.data
 
 
 def test_login_flashes_message_for_wrong_password(client: FlaskClient) -> None:
     register(client)
     client.get(PATH_LOGOUT)
-    response = client.post(
-        PATH_LOGIN,
-        data={FIELD_EMAIL: TEST_EMAIL, FIELD_PASSWORD: TEST_WRONG_PASSWORD},
-    )
+    response = login(client, password=TEST_WRONG_PASSWORD)
     assert MSG_PASSWORD_WRONG.encode() in response.data
 
 
@@ -153,3 +149,44 @@ def test_register_rejects_empty_field_with_400_and_flash(
     assert client.get(PATH_SECRETS).status_code == 302
     with app.app_context():
         assert db.session.execute(select(UserRecord)).first() is None
+
+
+@pytest.mark.parametrize("path", [PATH_REGISTER, PATH_LOGIN])
+def test_form_pages_contain_hidden_csrf_token_field(
+    client: FlaskClient, path: str
+) -> None:
+    page = client.get(path).get_data(as_text=True)
+    assert f'<input type="hidden" name="{FIELD_CSRF_TOKEN}"' in page
+    assert fetch_csrf_token(client, path)
+
+
+@pytest.mark.parametrize("token", [None, "", "not-a-valid-token"])
+def test_register_without_valid_csrf_token_returns_400_and_creates_no_user(
+    app: Flask, client: FlaskClient, token: str | None
+) -> None:
+    data = {
+        FIELD_NAME: TEST_NAME,
+        FIELD_EMAIL: TEST_EMAIL,
+        FIELD_PASSWORD: TEST_PASSWORD,
+    }
+    if token is not None:
+        data[FIELD_CSRF_TOKEN] = token
+    response = client.post(PATH_REGISTER, data=data)
+    assert response.status_code == 400
+    assert client.get(PATH_SECRETS).status_code == 302
+    with app.app_context():
+        assert db.session.execute(select(UserRecord)).first() is None
+
+
+@pytest.mark.parametrize("token", [None, "", "not-a-valid-token"])
+def test_login_without_valid_csrf_token_returns_400_and_does_not_log_in(
+    client: FlaskClient, token: str | None
+) -> None:
+    register(client)
+    client.get(PATH_LOGOUT)
+    data = {FIELD_EMAIL: TEST_EMAIL, FIELD_PASSWORD: TEST_PASSWORD}
+    if token is not None:
+        data[FIELD_CSRF_TOKEN] = token
+    response = client.post(PATH_LOGIN, data=data)
+    assert response.status_code == 400
+    assert client.get(PATH_SECRETS).status_code == 302

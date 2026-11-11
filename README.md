@@ -110,6 +110,8 @@ python -m flask_auth
 
 On Windows PowerShell set the variable with `$env:SECRET_KEY = "..."`. The server serves `http://127.0.0.1:5000` and creates `instance/users.db` on first start; set `DATABASE_URI` to use another database. Debug mode is off unless `FLASK_AUTH_DEBUG=1`.
 
+The register and login forms are protected against cross-site request forgery (CSRF) with Flask-WTF: each form carries a hidden `csrf_token` field, and a POST without a valid token is answered with 400. `GET /logout` ends the session without a token, as in the lecture.
+
 ## 🧪 Tests
 
 ```bash
