@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [4fb9219] |
 
 ---
 
@@ -83,3 +83,4 @@ Go — every Mandatory criterion of [QC-PY-001] passes, and so do the Optional o
 [QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
 [RC-013]: ./rc-013-mil-004-code.md
 [ADR-0001]: ../../adr/adr-0001-layered-structure-without-use-case-artifacts.md
+[4fb9219]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4fb9219b59820b5533ef7aa278fd36cd436b097e

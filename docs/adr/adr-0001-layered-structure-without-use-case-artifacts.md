@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version<br>Reviewed in RC-014: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version<br>Reviewed in RC-014: Go | [4fb9219] |
 
 Allowed Status values: `Proposed`, `Accepted`, `Rejected`, `Deprecated`, `Superseded by ADR-NNNN`.
 
@@ -63,3 +63,4 @@ Imports point inward: `domain` imports nothing from the other layers or from a f
 
 [MIL-004]: ../milestones/mil-004-flask-app.md
 [RC-013]: ../sqa/reviews/rc-013-mil-004-code.md
+[4fb9219]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4fb9219b59820b5533ef7aa278fd36cd436b097e

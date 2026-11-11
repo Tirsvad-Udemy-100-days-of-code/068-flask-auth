@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [4fb9219] |
 
 ---
 
@@ -80,3 +80,4 @@ No-Go — Mandatory criteria 3, 9, 10, 14, 15, 16 and 17 do not pass; Optional c
 
 [MIL-004]: ../../milestones/mil-004-flask-app.md
 [QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
+[4fb9219]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4fb9219b59820b5533ef7aa278fd36cd436b097e
