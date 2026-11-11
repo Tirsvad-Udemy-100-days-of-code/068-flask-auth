@@ -10,7 +10,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
     <div class="container">
-      <a class="navbar-brand" href="{{ url_for('main.home') }}">Flask Auth</a>
+      <a class="navbar-brand" href="{{ url_for('main.home') }}">Flask Authentication</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,7 +35,7 @@
   <main class="container py-4">
     {% with messages = get_flashed_messages() %}
       {% for message in messages %}
-        <div class="alert alert-warning" role="alert">{{ message }}</div>
+        <div class="alert flash-message" role="alert">{{ message }}</div>
       {% endfor %}
     {% endwith %}
     {% block content %}{% endblock %}

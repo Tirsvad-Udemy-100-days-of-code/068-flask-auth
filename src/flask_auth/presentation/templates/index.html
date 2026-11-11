@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="hero p-5 bg-body-tertiary rounded-3 text-center">
-  <h1 class="display-5 fw-bold">Authentication Flask App</h1>
+<div class="page-column">
+  <h1 class="page-title">Flask Authentication</h1>
   {% if not logged_in %}
-    <p class="lead">Log in to your account, or sign up to get started.</p>
-    <a class="btn btn-primary btn-lg me-2" href="{{ url_for('main.login') }}">Login</a>
-    <a class="btn btn-outline-primary btn-lg" href="{{ url_for('main.register') }}">Register</a>
+    <a class="btn btn-lecture-primary mb-3" href="{{ url_for('main.login') }}">Login</a>
+    <a class="btn btn-lecture-secondary" href="{{ url_for('main.register') }}">Register</a>
   {% else %}
-    <p class="lead">(you are already logged in)</p>
-    <a class="btn btn-primary btn-lg" href="{{ url_for('main.secrets') }}">Secrets</a>
+    <p class="page-text">(you are already logged in)</p>
+    <a class="btn btn-lecture-primary" href="{{ url_for('main.secrets') }}">Secrets</a>
   {% endif %}
 </div>
 {% endblock %}
