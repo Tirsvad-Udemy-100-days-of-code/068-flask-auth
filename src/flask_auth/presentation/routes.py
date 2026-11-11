@@ -168,6 +168,6 @@ def create_blueprint(
     main.add_url_rule(PATH_REGISTER, "register", controller.register, methods=both)
     main.add_url_rule(PATH_LOGIN, "login", controller.login, methods=both)
     main.add_url_rule(PATH_SECRETS, "secrets", login_required(controller.secrets))
-    main.add_url_rule(PATH_LOGOUT, "logout", controller.logout)
+    main.add_url_rule(PATH_LOGOUT, "logout", controller.logout, methods=["POST"])
     main.add_url_rule(PATH_DOWNLOAD, "download", login_required(controller.download))
     return main

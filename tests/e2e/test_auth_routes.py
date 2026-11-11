@@ -1,5 +1,7 @@
 """Behaviour tests of registration, login, protected routes and flash messages."""
 
+from urllib.parse import urlparse
+
 import pytest
 from flask import Flask
 from flask.testing import FlaskClient
@@ -24,7 +26,7 @@ from flask_auth.constants import (
 )
 from flask_auth.infrastructure.extensions import db
 from flask_auth.infrastructure.models import UserRecord
-from tests.e2e.conftest import fetch_csrf_token, login, register
+from tests.e2e.conftest import fetch_csrf_token, login, logout, register
 from tests.support import (
     TEST_EMAIL,
     TEST_NAME,
@@ -61,7 +63,7 @@ def test_same_password_hashes_differently_for_two_users(
     app: Flask, client: FlaskClient
 ) -> None:
     register(client, email=TEST_EMAIL)
-    client.get(PATH_LOGOUT)
+    logout(client)
     register(client, email=TEST_OTHER_EMAIL)
     with app.app_context():
         hashes = db.session.execute(select(UserRecord.password)).scalars().all()
@@ -87,11 +89,11 @@ def test_logged_in_user_can_download_file(client: FlaskClient) -> None:
 
 def test_login_succeeds_and_logout_ends_session(client: FlaskClient) -> None:
     register(client)
-    client.get(PATH_LOGOUT)
+    logout(client)
     response = login(client)
     assert response.status_code == 302
     assert client.get(PATH_SECRETS).status_code == 200
-    client.get(PATH_LOGOUT)
+    logout(client)
     assert client.get(PATH_SECRETS).status_code == 302
 
 
@@ -102,7 +104,7 @@ def test_login_flashes_message_for_unknown_email(client: FlaskClient) -> None:
 
 def test_login_flashes_message_for_wrong_password(client: FlaskClient) -> None:
     register(client)
-    client.get(PATH_LOGOUT)
+    logout(client)
     response = login(client, password=TEST_WRONG_PASSWORD)
     assert MSG_PASSWORD_WRONG.encode() in response.data
 
@@ -111,7 +113,7 @@ def test_register_existing_email_redirects_to_login_with_flash(
     app: Flask, client: FlaskClient
 ) -> None:
     register(client)
-    client.get(PATH_LOGOUT)
+    logout(client)
     response = register(client)
     assert response.status_code == 302
     assert PATH_LOGIN in response.headers["Location"]
@@ -125,6 +127,7 @@ def test_home_navbar_differs_when_logged_in(client: FlaskClient) -> None:
     logged_out = client.get(PATH_HOME).data
     assert b"Login" in logged_out and b"Register" in logged_out
     assert b"Log Out" not in logged_out
+    assert f'action="{PATH_LOGOUT}"' not in logged_out.decode()
     register(client)
     logged_in = client.get(PATH_HOME).data
     assert b"Log Out" in logged_in
@@ -183,10 +186,48 @@ def test_login_without_valid_csrf_token_returns_400_and_does_not_log_in(
     client: FlaskClient, token: str | None
 ) -> None:
     register(client)
-    client.get(PATH_LOGOUT)
+    logout(client)
     data = {FIELD_EMAIL: TEST_EMAIL, FIELD_PASSWORD: TEST_PASSWORD}
     if token is not None:
         data[FIELD_CSRF_TOKEN] = token
     response = client.post(PATH_LOGIN, data=data)
     assert response.status_code == 400
     assert client.get(PATH_SECRETS).status_code == 302
+
+
+def test_get_logout_returns_405_and_keeps_session(client: FlaskClient) -> None:
+    register(client)
+    assert client.get(PATH_LOGOUT).status_code == 405
+    assert client.get(PATH_SECRETS).status_code == 200
+
+
+@pytest.mark.parametrize("token", [None, "", "not-a-valid-token"])
+def test_logout_without_valid_csrf_token_returns_400_and_keeps_session(
+    client: FlaskClient, token: str | None
+) -> None:
+    register(client)
+    data = {} if token is None else {FIELD_CSRF_TOKEN: token}
+    assert client.post(PATH_LOGOUT, data=data).status_code == 400
+    assert client.get(PATH_SECRETS).status_code == 200
+
+
+def test_logout_with_valid_csrf_token_redirects_home_and_ends_session(
+    client: FlaskClient,
+) -> None:
+    register(client)
+    response = logout(client)
+    assert response.status_code == 302
+    assert urlparse(response.headers["Location"]).path == PATH_HOME
+    secrets = client.get(PATH_SECRETS)
+    assert secrets.status_code == 302
+    assert PATH_LOGIN in secrets.headers["Location"]
+
+
+def test_logged_in_navbar_has_logout_form_and_no_logout_link(
+    client: FlaskClient,
+) -> None:
+    register(client)
+    page = client.get(PATH_HOME).get_data(as_text=True)
+    assert f'<form action="{PATH_LOGOUT}" method="post">' in page
+    assert f'<input type="hidden" name="{FIELD_CSRF_TOKEN}"' in page
+    assert f'href="{PATH_LOGOUT}"' not in page
