@@ -10,7 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Proposed | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [6e33a53] |
-| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | AI as stand-in for S01 | Criterion 14 closed after publishing: verdict Go | pending |
+| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | AI as stand-in for S01 | Criterion 14 closed after publishing: verdict Go | [a577f89] |
 
 ---
 
@@ -58,3 +58,4 @@ Go — every Mandatory criterion passes; criterion 14 was closed after the merge
 
 [QC-WIKI-001]: ../../../framework/qc/artifacts/qc-wiki.md
 [6e33a53]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/6e33a533b0bd8bf68cfef8e1e3aca289c27f4206
+[a577f89]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/a577f8920c4ac31447bf2bc74f3ade633c4fb317
