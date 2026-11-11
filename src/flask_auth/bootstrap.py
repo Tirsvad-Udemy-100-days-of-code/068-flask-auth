@@ -26,7 +26,12 @@ def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
     @return The configured Flask application.
     @throws MissingSecretKeyError When no secret key is configured.
     """
-    app = Flask(__name__)
+    # Only css/ is public: static/files/ holds the download, which needs a login.
+    app = Flask(
+        __name__,
+        static_folder="presentation/static/css",
+        static_url_path="/static/css",
+    )
     app.config.from_mapping(build_config(test_config))
 
     db.init_app(app)

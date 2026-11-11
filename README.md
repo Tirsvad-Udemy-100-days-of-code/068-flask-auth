@@ -112,6 +112,8 @@ On Windows PowerShell set the variable with `$env:SECRET_KEY = "..."`. The serve
 
 The register and login forms are protected against cross-site request forgery (CSRF) with Flask-WTF: each form carries a hidden `csrf_token` field, and a POST without a valid token is answered with 400. Logging out is a POST as well: the navbar "Log Out" entry is a small form with a token, and `GET /logout` returns 405. This departs from the lecture, where logout is a plain link, because a GET that changes state can be triggered from another site.
 
+The pages are styled with Bootstrap 5.3.3, loaded from the jsDelivr CDN with pinned versions and SRI hashes, plus a small own stylesheet in `src/flask_auth/presentation/static/css/app.css`. The pages therefore need network access to look right. Only the `css/` folder is served as static files; the download in `static/files/` stays behind the login.
+
 ## 🧪 Tests
 
 ```bash
