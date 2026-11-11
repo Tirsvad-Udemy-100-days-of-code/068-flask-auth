@@ -26,7 +26,11 @@ dev = [
 ]
 
 [tool.setuptools.package-data]
-flask_auth = ["presentation/templates/*.html", "presentation/static/files/*"]
+flask_auth = [
+    "presentation/templates/*.html",
+    "presentation/static/files/*",
+    "presentation/static/css/*",
+]
 
 [tool.setuptools]
 package-dir = { "" = "src" }

@@ -18,6 +18,7 @@ from flask_auth.constants import (
     PATH_LOGIN,
     PATH_LOGOUT,
     PATH_REGISTER,
+    PATH_SECRETS,
 )
 from flask_auth.infrastructure.extensions import db
 from tests.support import (
@@ -95,6 +96,23 @@ def login(
             FIELD_CSRF_TOKEN: fetch_csrf_token(client, PATH_LOGIN),
         },
     )
+
+
+def fetch_all_pages(client: FlaskClient) -> dict[str, str]:
+    """HTML of the home, register and login pages, then of home and secrets.
+
+    The anonymous pages come first; the client then registers, so the logged-in
+    home page and the secrets page are read with a session. Keys are labels.
+    """
+    pages = {
+        "home": client.get(PATH_HOME).get_data(as_text=True),
+        "register": client.get(PATH_REGISTER).get_data(as_text=True),
+        "login": client.get(PATH_LOGIN).get_data(as_text=True),
+    }
+    register(client)
+    pages["home-logged-in"] = client.get(PATH_HOME).get_data(as_text=True)
+    pages["secrets"] = client.get(PATH_SECRETS).get_data(as_text=True)
+    return pages
 
 
 def logout(client: FlaskClient) -> TestResponse:

@@ -4,15 +4,15 @@
 | Key | Value |
 | --- | --- |
 | ID | PP-001 |
-| CrossReference | [BC-001], [SA-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [MIL-006] |
+| CrossReference | [BC-001], [SA-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [MIL-006], [MIL-007] |
 | Language | en |
 | Domain | it |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-005 CSRF protection<br>Reviewed in RC-017: Go | [6ce33b0] |
 | 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-006 logout with POST<br>Reviewed in RC-020: Go | [1b75359] |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-007 styling with Bootstrap<br>Reviewed in RC-024: Go | pending |
 
 ---
 
@@ -35,7 +35,8 @@ Schedule the three phases that turn the Day 68 lecture into a README, a three-la
 | Wiki | [MIL-003] | 2026-11-13 to 2026-11-16 | 2026-11-16 | S01 | none (documentation tasks) | Wiki in en, da, ms | not yet synced |
 | Flask app | [MIL-004] | 2026-11-12 to 2026-11-16 | 2026-11-16 | S01 | none (technical tasks) | Flask application with tests | Milestone 4 (closed) |
 | CSRF protection | [MIL-005] | 2026-11-12 to 2026-11-16 | 2026-11-16 | S01 | none (technical tasks) | CSRF tokens on the register and login forms | Milestone 5 (closed) |
-| Logout with POST | [MIL-006] | 2026-11-12 to 2026-11-16 | 2026-11-16 | S01 | none (technical tasks) | POST-only logout with a CSRF-protected form | not yet synced |
+| Logout with POST | [MIL-006] | 2026-11-12 to 2026-11-16 | 2026-11-16 | S01 | none (technical tasks) | POST-only logout with a CSRF-protected form | Milestone 6 (closed) |
+| Styling | [MIL-007] | 2026-11-12 to 2026-11-16 | 2026-11-16 | S01 | none (technical tasks) | Bootstrap and own CSS on every page | not yet synced |
 
 ```plantuml
 @startgantt
@@ -52,6 +53,8 @@ Project starts 2026-11-11
 [CSRF Go/No-Go] happens 2026-11-16
 [Logout with POST] starts 2026-11-12 and ends 2026-11-16
 [Logout Go/No-Go] happens 2026-11-16
+[Styling] starts 2026-11-12 and ends 2026-11-16
+[Styling Go/No-Go] happens 2026-11-16
 @endgantt
 ```
 
@@ -65,13 +68,14 @@ Project starts 2026-11-11
 | Flask application and tests | [MIL-004] |
 | CSRF protection of the forms | [MIL-005] |
 | Logout as a protected POST | [MIL-006] |
+| Styling of the pages | [MIL-007] |
 | opengrep scan before push | All gateways |
 
 ## Dependencies
 
 ```
 MIL-001 → MIL-002 → MIL-003
-MIL-003 → MIL-004 → MIL-005 → MIL-006
+MIL-003 → MIL-004 → MIL-005 → MIL-006 → MIL-007
 ```
 
 A No-Go on a gateway moves every later gateway by the rework time and may move the end date of 2026-11-16; S01 decides any move of the end date.
@@ -97,6 +101,7 @@ A No-Go on a gateway moves every later gateway by the rework time and may move t
 [MIL-004]: ./milestones/mil-004-flask-app.md
 [MIL-005]: ./milestones/mil-005-csrf-protection.md
 [MIL-006]: ./milestones/mil-006-logout-post.md
+[MIL-007]: ./milestones/mil-007-styling.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd
 [a7d60a0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/a7d60a0ff5f21fe76224c3663ba32f75a1af658e
 [6ce33b0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/6ce33b09098a294c1c7b93cb9f3e988bf72f60af
