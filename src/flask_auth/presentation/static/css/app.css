@@ -1,18 +1,107 @@
+/* Look of the lecture screenshots; Bootstrap supplies the grid and the navbar. */
 body {
   min-height: 100vh;
-  background-color: #f6f7f9;
+  margin: 0;
+  font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  background-color: #2e2d4d;
+  background-image: linear-gradient(
+    135deg,
+    #5a3040 0%,
+    #2e2d4d 50%,
+    #17294f 100%
+  );
+  background-attachment: fixed;
+}
+
+.navbar {
+  text-shadow: none;
+  text-align: left;
 }
 
 main {
   padding-bottom: 3rem;
 }
 
-.auth-card {
-  max-width: 28rem;
-  margin: 2rem auto;
+.page-column {
+  width: 100%;
+  max-width: 300px;
+  margin: 90px auto 0;
 }
 
-.hero {
-  max-width: 40rem;
-  margin: 2rem auto;
+.page-title {
+  font-size: 2.6rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.page-text {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.flash-message {
+  max-width: 300px;
+  margin: 1.5rem auto 0;
+  padding: 0.5rem 0;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.page-column .form-control {
+  color: #fff;
+  background-color: rgba(20, 20, 35, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-shadow: none;
+}
+
+.page-column .form-control:focus {
+  color: #fff;
+  background-color: rgba(20, 20, 35, 0.7);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 0.2rem rgba(106, 174, 224, 0.35);
+}
+
+.page-column .form-control::placeholder {
+  color: #a8a8b8;
+  opacity: 1;
+}
+
+.btn-lecture-primary,
+.btn-lecture-secondary {
+  display: block;
+  width: 100%;
+  font-weight: 300;
+  text-shadow: none;
+}
+
+.btn-lecture-primary {
+  color: #fff;
+  background-image: linear-gradient(to bottom, #6aaee0, #3f6fd0);
+  border: 1px solid #2f58b0;
+}
+
+.btn-lecture-secondary {
+  color: #333;
+  background-image: linear-gradient(to bottom, #fff, #e4e4e4);
+  border: 1px solid #d0d0d0;
+}
+
+.btn-lecture-primary:hover,
+.btn-lecture-primary:focus {
+  color: #fff;
+  filter: brightness(1.08);
+}
+
+.btn-lecture-secondary:hover,
+.btn-lecture-secondary:focus {
+  color: #111;
+  filter: brightness(0.97);
 }
