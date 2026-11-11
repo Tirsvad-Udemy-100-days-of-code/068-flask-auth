@@ -12,6 +12,7 @@ This repository holds a working Flask application that implements the lecture st
 python -m venv .venv
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
+# SECRET_KEY must be set first (see the README)
 python -m flask_auth     # serves http://127.0.0.1:5000
 python -m pytest         # runs the tests
 ```
@@ -32,14 +33,14 @@ The screenshots in the steps come from the lecture's own end project; the code i
 
 | Step | Code in `src/flask_auth/` |
 | --- | --- |
-| 1 Register and greet | `routes.py` (`register`, `secrets`), `models.py` (`User`) |
-| 2 Download a file | `routes.py` (`download`) |
-| 3, 4 Hashing and salting | `models.py` (`User.create`), `constants.py` |
-| 5 Flask-Login | `extensions.py`, `models.py` (`load_user`), `routes.py` (`login`, `logout`) |
-| 6 Flash messages | `routes.py`, `templates/login.html`, `constants.py` |
-| 7 Authentication status | `templates/base.html`, `templates/index.html` |
+| 1 Register and greet | `presentation/routes.py` (`register`, `secrets`), `application/register_user.py`, `domain/user.py` |
+| 2 Download a file | `presentation/routes.py` (`download`) |
+| 3, 4 Hashing and salting | `infrastructure/password_hasher.py`, `constants.py` |
+| 5 Flask-Login | `presentation/login_adapter.py`, `application/authenticate_user.py`, `presentation/routes.py` (`login`, `logout`) |
+| 6 Flash messages | `presentation/routes.py`, `presentation/templates/base.html`, `constants.py` |
+| 7 Authentication status | `presentation/templates/base.html`, `presentation/templates/index.html` |
 
-The tests are in `tests/test_auth.py`.
+The tests are in `tests/unit`, `tests/integration` and `tests/e2e`.
 
 ## What we gained overall
 

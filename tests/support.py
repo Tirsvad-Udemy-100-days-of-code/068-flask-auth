@@ -1,0 +1,10 @@
+"""Test data shared by several test modules."""
+
+TEST_NAME = "Ada"
+TEST_EMAIL = "ada@example.com"
+TEST_OTHER_EMAIL = "bob@example.com"
+TEST_UNKNOWN_EMAIL = "nobody@example.com"
+TEST_PASSWORD = "correct horse battery"
+TEST_WRONG_PASSWORD = "not-the-right-one"
+TEST_SECRET_KEY = "test-secret-key"
+TEST_IN_MEMORY_DATABASE_URI = "sqlite://"
