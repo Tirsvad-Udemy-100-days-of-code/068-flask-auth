@@ -10,6 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Proposed | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [6e33a53] |
+| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | AI as stand-in for S01 | Criterion 14 closed after publishing: verdict Go | [a577f89] |
 
 ---
 
@@ -39,21 +40,22 @@
 | 11 | Every page starts with the language line, with the current language in bold and a link to the same page in each other language | Pass | All 24 pages start with the language line, current language in bold. |
 | 12 | A page in a language other than English is named `<Page>-<code>.md`, with a BCP 47 code; English has no suffix | Pass | Files are `<Page>-da.md` and `<Page>-ms.md`; English has no suffix. |
 | 13 | Code blocks, commands, file names and IDs stay in English in every language | Pass | Code blocks and commands are the same in all languages. |
-| 14 | The sidebar, every page and every link were checked on the published wiki after the change, not only in the repository | Pending | PENDING: the published wiki can be checked only after merge; see Action Items. |
+| 14 | The sidebar, every page and every link were checked on the published wiki after the change, not only in the repository | Pass | On 2026-11-11 the host listed 25 wiki pages (8 per language plus `_Sidebar`); Home, a step page per language and the 14 screenshots returned HTTP 200; the sidebar and page links point to existing pages. |
 | 15 | A change to the layout rules (sections, order, naming) is made in the generator or template and in this checklist's source rules together | Pass | No layout rule changed. |
 | 16 | The wiki folder (`docs/wiki/`) is flat: every page, `Home.md` and `_Sidebar.md` included, is directly in it, and languages are told apart by file name, never by a subfolder | Pass | All 25 files are directly in `docs/wiki/`. |
 
 ## Overall Verdict
 
-Go-with-conditions — every Mandatory criterion passes except 14, which only a check of the published wiki can close (Pending). Criterion 7 is N-A because no generator produces the sidebar.
+Go — every Mandatory criterion passes; criterion 14 was closed after the merge by checking the published wiki. Criterion 7 is N-A because no generator produces the sidebar.
 
 ## Action Items
 
 | Action | Owner | Due |
 | --- | --- | --- |
-| Check the sidebar, every page and every link on the published wiki, then close criterion 14 in a follow-up | S01 | 2026-11-16 |
+| None (the published-wiki check is done) | S01 | |
 
 ---
 
 [QC-WIKI-001]: ../../../framework/qc/artifacts/qc-wiki.md
 [6e33a53]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/6e33a533b0bd8bf68cfef8e1e3aca289c27f4206
+[a577f89]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/a577f8920c4ac31447bf2bc74f3ade633c4fb317
