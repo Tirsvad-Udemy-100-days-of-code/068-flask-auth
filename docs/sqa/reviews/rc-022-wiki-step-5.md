@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [1b75359] |
 
 ---
 
@@ -58,3 +58,4 @@ Go once criterion 14 is closed: every other Mandatory criterion passes, and crit
 [QC-WIKI-001]: ../../../framework/qc/artifacts/qc-wiki.md
 [MIL-006]: ../../milestones/mil-006-logout-post.md
 [RC-012]: ./rc-012-wiki.md
+[1b75359]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/1b753595bc9d59fa84a8cc23dcb5e2a2ce4dfc47

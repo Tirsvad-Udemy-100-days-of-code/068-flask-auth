@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [1b75359] |
 
 ---
 
@@ -83,3 +83,4 @@ Go — every Mandatory criterion of [QC-PY-001] passes. This closes criterion 7 
 [ADR-0001]: ../../adr/adr-0001-layered-structure-without-use-case-artifacts.md
 [RC-015]: ./rc-015-mil-004-code-rereview.md
 [RC-018]: ./rc-018-mil-005-code.md
+[1b75359]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/1b753595bc9d59fa84a8cc23dcb5e2a2ce4dfc47

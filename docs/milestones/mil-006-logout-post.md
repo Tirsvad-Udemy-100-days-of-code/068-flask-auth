@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version<br>Reviewed in RC-019: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version<br>Reviewed in RC-019: Go | [1b75359] |
 
 ---
 
@@ -77,3 +77,4 @@ Decide whether logging out is a protected POST instead of a GET. The lecture end
 
 [BC-001]: ../business-case.md
 [MIL-005]: ./mil-005-csrf-protection.md
+[1b75359]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/1b753595bc9d59fa84a8cc23dcb5e2a2ce4dfc47
