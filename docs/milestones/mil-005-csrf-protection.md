@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version<br>Reviewed in RC-016: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version<br>Reviewed in RC-016: Go | [6ce33b0] |
 
 ---
 
@@ -77,3 +77,4 @@ Flask-WTF `CSRFProtect` enabled in the application, a CSRF token in the register
 [BC-001]: ../business-case.md
 [MIL-004]: ./mil-004-flask-app.md
 [ADR-0001]: ../adr/adr-0001-layered-structure-without-use-case-artifacts.md
+[6ce33b0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/6ce33b09098a294c1c7b93cb9f3e988bf72f60af

@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-004 Flask application<br>Reviewed in RC-009: Go | [a7d60a0] |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-005 CSRF protection<br>Reviewed in RC-017: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-005 CSRF protection<br>Reviewed in RC-017: Go | [6ce33b0] |
 
 ---
 
@@ -94,3 +94,4 @@ A No-Go on a gateway moves every later gateway by the rework time and may move t
 [MIL-005]: ./milestones/mil-005-csrf-protection.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd
 [a7d60a0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/a7d60a0ff5f21fe76224c3663ba32f75a1af658e
+[6ce33b0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/6ce33b09098a294c1c7b93cb9f3e988bf72f60af
