@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version<br>Reviewed in RC-002: Go | [4a5ddde] |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Align concerns with the working application (BC-001 objective 6); CN-005 reworded, ID kept<br>Reviewed in RC-011: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Align concerns with the working application (BC-001 objective 6); CN-005 reworded, ID kept<br>Reviewed in RC-011: Go | [09aabfe] |
 
 ---
 
@@ -78,3 +78,4 @@ Identify who is involved in the Day 68 project (application, README and wiki) an
 
 [BC-001]: ./business-case.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd
+[09aabfe]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/09aabfe8294e1b294aac326c4c184a526b8a780d
