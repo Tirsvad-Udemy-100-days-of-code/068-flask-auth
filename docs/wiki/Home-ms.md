@@ -6,13 +6,17 @@ Wiki ini menerangkan apa yang diajar oleh setiap langkah kuliah Hari 68 kursus U
 
 ## Jalankannya
 
-Repositori ini hanya mengandungi dokumentasi. Untuk mengikuti, cipta `.venv` setempat, naik taraf pip dan pasang pakej kuliah (arahan penuh ada dalam [README](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth)):
+Repositori ini mengandungi aplikasi Flask yang berfungsi dan melaksanakan langkah kuliah, dengan ujian pytest. Untuk menjalankannya, cipta `.venv` setempat, naik taraf pip dan pasang projek (arahan penuh ada dalam [README](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth)):
 
 ```bash
 python -m venv .venv
 python -m pip install --upgrade pip
-python -m pip install Flask==3.0.0 Werkzeug==3.0.0 Flask_Login==0.6.3 flask_sqlalchemy==3.1.1 "SQLAlchemy>=2.0.36"
+python -m pip install -e ".[dev]"
+python -m flask_auth     # melayani http://127.0.0.1:5000
+python -m pytest         # menjalankan ujian
 ```
+
+Tangkapan skrin dalam langkah datang daripada projek akhir kuliah sendiri; kod dalam repositori ini mengikuti langkah yang sama.
 
 ## Tujuh langkah
 
@@ -23,6 +27,19 @@ python -m pip install Flask==3.0.0 Werkzeug==3.0.0 Flask_Login==0.6.3 flask_sqla
 5. [Langkah 5: Sahkan pengguna dengan Flask-Login](Step-5-Authenticate-With-Flask-Login-ms)
 6. [Langkah 6: Mesej kilat (flash)](Step-6-Flash-Messages-ms)
 7. [Langkah 7: Hantar status pengesahan ke templat](Step-7-Authentication-Status-In-Templates-ms)
+
+## Di mana kodnya
+
+| Langkah | Kod dalam `src/flask_auth/` |
+| --- | --- |
+| 1 Daftar dan sapa | `routes.py` (`register`, `secrets`), `models.py` (`User`) |
+| 2 Muat turun fail | `routes.py` (`download`) |
+| 3, 4 Hashing dan salt | `models.py` (`User.create`), `constants.py` |
+| 5 Flask-Login | `extensions.py`, `models.py` (`load_user`), `routes.py` (`login`, `logout`) |
+| 6 Mesej flash | `routes.py`, `templates/login.html`, `constants.py` |
+| 7 Status pengesahan | `templates/base.html`, `templates/index.html` |
+
+Ujian terdapat dalam `tests/test_auth.py`.
 
 ## Apa yang kami perolehi secara keseluruhan
 

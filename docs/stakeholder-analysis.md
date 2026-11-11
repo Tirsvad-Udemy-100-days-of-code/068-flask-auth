@@ -12,12 +12,13 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version<br>Reviewed in RC-002: Go | [4a5ddde] |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Align concerns with the working application (BC-001 objective 6); CN-005 reworded, ID kept<br>Reviewed in RC-011: Go | pending |
 
 ---
 
 ## Purpose
 
-Identify who is involved in the Day 68 documentation project and what each needs from it. The analysis uses the power/interest grid.
+Identify who is involved in the Day 68 project (application, README and wiki) and what each needs from it. The analysis uses the power/interest grid.
 
 ## Stakeholder Summary Table
 
@@ -25,7 +26,7 @@ Identify who is involved in the Day 68 documentation project and what each needs
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | S01 | Jens Tirsvad Nielsen | Course participant; Product Owner, developer and reviewer | Tirsvad | HIGH | HIGH | Manage Closely | A correct, reviewed record of what the lecture teaches |
 | S02 | Udemy coursists | Course participants who share code and compare solutions | Udemy community | LOW | HIGH | Keep Informed | Readable, runnable instructions with the assignment's function names |
-| S03 | GitHub viewers | Readers who browse the repository for ideas | Public | LOW | LOW | Monitor | A clear description, topics and README, and no runtime dependencies |
+| S03 | GitHub viewers | Readers who browse the repository for ideas | Public | LOW | LOW | Monitor | A clear description, topics and README, and dependencies that install with one command |
 
 ## Power/Interest Classification Rationale
 
@@ -41,20 +42,20 @@ Identify who is involved in the Day 68 documentation project and what each needs
 | CN-002 | S02 | Instructions that run as written (local `.venv`, tests) | Usability |
 | CN-003 | S02 | Wiki readable in their own language | Usability |
 | CN-004 | S03 | Clear description, topics and README at first glance | Usability |
-| CN-005 | S03 | No runtime dependencies to install | Functionality |
+| CN-005 | S03 | Dependencies declared in `pyproject.toml` that install with one command | Functionality |
 
 ## Communication Requirements
 
 | ID | Channel | Frequency | Deliverable | Phase / Milestone |
 | --- | --- | --- | --- | --- |
 | COM-001 | Chat and pull request | Per milestone | Pull request with closed issues | All milestones |
-| COM-002 | Repository README and wiki | On merge | Published documentation | MIL-002, MIL-003 |
+| COM-002 | Repository README and wiki | On merge | Published documentation | MIL-002, MIL-003, MIL-004 |
 
 ## Conflicting Interests and Mitigations
 
 | Conflict | Stakeholders | Mitigation |
 | --- | --- | --- |
-| S02 wants runnable code; the project delivers documentation only | S02, S01 | The README states the scope and how to set up a local `.venv` |
+| S02 wants runnable code and S03 wants little to install | S02, S03, S01 | The project delivers the application (MIL-004); `pip install -e ".[dev]"` installs everything declared in `pyproject.toml`, and the README states the steps |
 
 ## Traceability Analysis
 
@@ -64,7 +65,8 @@ Identify who is involved in the Day 68 documentation project and what each needs
 | --- | --- | --- |
 | S01 | CN-001 | Objective 5 in [BC-001] |
 | S02 | CN-002, CN-003 | Objectives 1 and 2 in [BC-001] |
-| S03 | CN-004, CN-005 | Objectives 3 and 4 in [BC-001] |
+| S03 | CN-004 | Objectives 3 and 4 in [BC-001] |
+| S03 | CN-005 | Objective 6 in [BC-001] |
 
 ## Sign-Off
 
