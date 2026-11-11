@@ -5,6 +5,7 @@
 
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf.csrf import CSRFProtect
 from sqlalchemy.orm import DeclarativeBase
 
 from flask_auth.constants import ENDPOINT_LOGIN
@@ -17,5 +18,6 @@ class Base(DeclarativeBase):
 
 
 db = SQLAlchemy(model_class=Base)
+csrf = CSRFProtect()
 login_manager = LoginManager()
 login_manager.login_view = ENDPOINT_LOGIN
