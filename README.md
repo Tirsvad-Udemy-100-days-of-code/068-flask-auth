@@ -21,8 +21,8 @@ The lecture builds a small Flask site where people register, log in, see a secre
 
 | Folder | Purpose |
 | --- | --- |
-| `src/flask_auth/` | The Flask application: factory, `User` model, routes, templates, static file |
-| `tests/` | pytest tests for registration, login, protected routes and flash messages |
+| `src/flask_auth/` | The Flask application in four layers: `domain`, `application`, `infrastructure`, `presentation`, with `bootstrap.py` as composition root |
+| `tests/` | pytest tests in `unit/`, `integration/` and `e2e/` |
 | `docs/` | Project documents, the step screenshots (`docs/images/`) and the wiki (`docs/wiki/`) |
 
 The [wiki][wiki] explains what each lecture step taught, in English, Danish and Bahasa Malaysia.
@@ -101,13 +101,14 @@ Packages are installed from `pyproject.toml`. On Python 3.13 `SQLAlchemy>=2.0.36
 
 ## ▶️ Run
 
-Start the development server from the activated `.venv`:
+The application has no default secret key. Set `SECRET_KEY` in the environment, then start the development server from the activated `.venv`:
 
 ```bash
+export SECRET_KEY="$(python -c 'import secrets; print(secrets.token_hex(32))')"   # Linux and macOS
 python -m flask_auth
 ```
 
-It serves `http://127.0.0.1:5000` and creates `instance/users.db` on first start. Set `SECRET_KEY` (and optionally `DATABASE_URI`) in the environment for anything other than local use.
+On Windows PowerShell set the variable with `$env:SECRET_KEY = "..."`. The server serves `http://127.0.0.1:5000` and creates `instance/users.db` on first start; set `DATABASE_URI` to use another database. Debug mode is off unless `FLASK_AUTH_DEBUG=1`.
 
 ## 🧪 Tests
 

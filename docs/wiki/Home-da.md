@@ -12,6 +12,7 @@ Dette repository indeholder en fungerende Flask-applikation, der implementerer l
 python -m venv .venv
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
+# SECRET_KEY skal sættes først (se README)
 python -m flask_auth     # serverer http://127.0.0.1:5000
 python -m pytest         # kører testene
 ```
@@ -32,14 +33,14 @@ Skærmbillederne i trinene stammer fra lektionens eget slutprojekt; koden i dett
 
 | Trin | Kode i `src/flask_auth/` |
 | --- | --- |
-| 1 Registrer og hils | `routes.py` (`register`, `secrets`), `models.py` (`User`) |
-| 2 Hent en fil | `routes.py` (`download`) |
-| 3, 4 Hashing og salt | `models.py` (`User.create`), `constants.py` |
-| 5 Flask-Login | `extensions.py`, `models.py` (`load_user`), `routes.py` (`login`, `logout`) |
-| 6 Flash-beskeder | `routes.py`, `templates/login.html`, `constants.py` |
-| 7 Loginstatus | `templates/base.html`, `templates/index.html` |
+| 1 Registrer og hils | `presentation/routes.py` (`register`, `secrets`), `application/register_user.py`, `domain/user.py` |
+| 2 Hent en fil | `presentation/routes.py` (`download`) |
+| 3, 4 Hashing og salt | `infrastructure/password_hasher.py`, `constants.py` |
+| 5 Flask-Login | `presentation/login_adapter.py`, `application/authenticate_user.py`, `presentation/routes.py` (`login`, `logout`) |
+| 6 Flash-beskeder | `presentation/routes.py`, `presentation/templates/base.html`, `constants.py` |
+| 7 Loginstatus | `presentation/templates/base.html`, `presentation/templates/index.html` |
 
-Testene ligger i `tests/test_auth.py`.
+Testene ligger i `tests/unit`, `tests/integration` og `tests/e2e`.
 
 ## Hvad vi fik ud af det samlet set
 

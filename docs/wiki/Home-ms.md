@@ -12,6 +12,7 @@ Repositori ini mengandungi aplikasi Flask yang berfungsi dan melaksanakan langka
 python -m venv .venv
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
+# SECRET_KEY mesti ditetapkan dahulu (lihat README)
 python -m flask_auth     # melayani http://127.0.0.1:5000
 python -m pytest         # menjalankan ujian
 ```
@@ -32,14 +33,14 @@ Tangkapan skrin dalam langkah datang daripada projek akhir kuliah sendiri; kod d
 
 | Langkah | Kod dalam `src/flask_auth/` |
 | --- | --- |
-| 1 Daftar dan sapa | `routes.py` (`register`, `secrets`), `models.py` (`User`) |
-| 2 Muat turun fail | `routes.py` (`download`) |
-| 3, 4 Hashing dan salt | `models.py` (`User.create`), `constants.py` |
-| 5 Flask-Login | `extensions.py`, `models.py` (`load_user`), `routes.py` (`login`, `logout`) |
-| 6 Mesej flash | `routes.py`, `templates/login.html`, `constants.py` |
-| 7 Status pengesahan | `templates/base.html`, `templates/index.html` |
+| 1 Daftar dan sapa | `presentation/routes.py` (`register`, `secrets`), `application/register_user.py`, `domain/user.py` |
+| 2 Muat turun fail | `presentation/routes.py` (`download`) |
+| 3, 4 Hashing dan salt | `infrastructure/password_hasher.py`, `constants.py` |
+| 5 Flask-Login | `presentation/login_adapter.py`, `application/authenticate_user.py`, `presentation/routes.py` (`login`, `logout`) |
+| 6 Mesej flash | `presentation/routes.py`, `presentation/templates/base.html`, `constants.py` |
+| 7 Status pengesahan | `presentation/templates/base.html`, `presentation/templates/index.html` |
 
-Ujian terdapat dalam `tests/test_auth.py`.
+Ujian terdapat dalam `tests/unit`, `tests/integration` dan `tests/e2e`.
 
 ## Apa yang kami perolehi secara keseluruhan
 

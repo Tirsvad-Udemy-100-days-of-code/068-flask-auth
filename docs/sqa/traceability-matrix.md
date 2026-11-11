@@ -29,7 +29,8 @@ updated whenever an artifact instance is created or reviewed.
 | [MIL-001] | MIL | en | it | [PP-001] | - | [RC-003] |
 | [MIL-002] | MIL | en | it | [MIL-001] | - | [RC-004] |
 | [MIL-003] | MIL | en | it | [MIL-002] | [MIL-004] | [RC-005] |
-| [MIL-004] | MIL | en | it | [MIL-003], [BC-001] | - | [RC-010] |
+| [MIL-004] | MIL | en | it | [MIL-003], [BC-001] | [ADR-0001] | [RC-010] |
+| [ADR-0001] | ADR | en | it | [MIL-004] | - | [RC-014] |
 
 ## Concern Coverage
 
@@ -60,6 +61,7 @@ Types with no instance yet have no row. `-` in Upstream means foundational, in D
 [MIL-002]: ../milestones/mil-002-readme.md
 [MIL-003]: ../milestones/mil-003-wiki.md
 [MIL-004]: ../milestones/mil-004-flask-app.md
+[ADR-0001]: ../adr/adr-0001-layered-structure-without-use-case-artifacts.md
 [RC-001]: ./reviews/rc-001-bc.md
 [RC-002]: ./reviews/rc-002-sa.md
 [RC-003]: ./reviews/rc-003-mil-001.md
@@ -70,4 +72,5 @@ Types with no instance yet have no row. `-` in Upstream means foundational, in D
 [RC-009]: ./reviews/rc-009-pp.md
 [RC-010]: ./reviews/rc-010-mil-004.md
 [RC-011]: ./reviews/rc-011-sa.md
+[RC-014]: ./reviews/rc-014-adr-0001.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd
