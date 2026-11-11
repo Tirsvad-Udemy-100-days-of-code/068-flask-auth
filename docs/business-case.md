@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version<br>Reviewed in RC-001: Go | [4a5ddde] |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add the working Flask application to scope (objective 6)<br>Reviewed in RC-008: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add the working Flask application to scope (objective 6)<br>Reviewed in RC-008: Go | [a7d60a0] |
 
 ---
 
@@ -131,3 +131,4 @@ Proceed — the scope is small, and the lecture content is already available.
 
 [SA-001]: ./stakeholder-analysis.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd
+[a7d60a0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/a7d60a0ff5f21fe76224c3663ba32f75a1af658e

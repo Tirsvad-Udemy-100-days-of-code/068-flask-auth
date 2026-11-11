@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version<br>Reviewed in RC-006: Go | [4a5ddde] |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-004 Flask application<br>Reviewed in RC-009: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-004 Flask application<br>Reviewed in RC-009: Go | [a7d60a0] |
 
 ---
 
@@ -88,3 +88,4 @@ A No-Go on a gateway moves every later gateway by the rework time and may move t
 [MIL-003]: ./milestones/mil-003-wiki.md
 [MIL-004]: ./milestones/mil-004-flask-app.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd
+[a7d60a0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/a7d60a0ff5f21fe76224c3663ba32f75a1af658e
