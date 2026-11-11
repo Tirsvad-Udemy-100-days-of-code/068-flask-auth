@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version<br>Reviewed in RC-005: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version<br>Reviewed in RC-005: Go | [4a5ddde] |
 
 ---
 
@@ -70,3 +70,4 @@ Flat Markdown pages in `docs/wiki/`: `Home`, one page per lecture step group, `_
 
 [BC-001]: ../business-case.md
 [MIL-002]: ./mil-002-readme.md
+[4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd
