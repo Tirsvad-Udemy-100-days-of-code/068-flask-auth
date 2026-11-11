@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version<br>Reviewed in RC-026: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version<br>Reviewed in RC-026: Go | [6bd7fad] |
 
 ---
 
@@ -83,3 +83,4 @@ A restyled `base.html`, templates and `static/css/app.css` that reproduce the lo
 
 [BC-001]: ../business-case.md
 [MIL-007]: ./mil-007-styling.md
+[6bd7fad]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/6bd7fadcb36f5ce0d1961bf10340d61ea7ca4c98

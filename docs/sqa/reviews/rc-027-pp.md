@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [6bd7fad] |
 
 ---
 
@@ -72,3 +72,4 @@ Go — every Mandatory criterion passes in both tables. S01 accepted the plan in
 [PP-001]: ../../project-plan.md
 [QC-PP-001]: ../../../framework/qc/artifacts/qc-project-plan.md
 [QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
+[6bd7fad]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/6bd7fadcb36f5ce0d1961bf10340d61ea7ca4c98

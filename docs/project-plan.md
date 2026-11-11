@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-007 styling with Bootstrap<br>Reviewed in RC-024: Go | [7bcae68] |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-008 lecture look<br>Reviewed in RC-027: Go | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add MIL-008 lecture look<br>Reviewed in RC-027: Go | [6bd7fad] |
 
 ---
 
@@ -112,3 +112,4 @@ A No-Go on a gateway moves every later gateway by the rework time and may move t
 [6ce33b0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/6ce33b09098a294c1c7b93cb9f3e988bf72f60af
 [1b75359]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/1b753595bc9d59fa84a8cc23dcb5e2a2ce4dfc47
 [7bcae68]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/7bcae6888254fa93645246583d461a8d2c31334a
+[6bd7fad]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/6bd7fadcb36f5ce0d1961bf10340d61ea7ca4c98
