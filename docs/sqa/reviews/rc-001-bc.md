@@ -63,6 +63,7 @@ Go — every Mandatory criterion passes in both tables. Stand-in decision: crite
 ---
 
 [BC-001]: ../../business-case.md
+[SA-001]: ../../stakeholder-analysis.md
 [QC-BC-001]: ../../../framework/qc/artifacts/qc-business-case.md
 [QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd

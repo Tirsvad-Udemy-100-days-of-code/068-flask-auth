@@ -63,6 +63,7 @@ Go — every Mandatory criterion passes in both tables. Supervised review: S01 a
 ---
 
 [BC-001]: ../../business-case.md
+[SA-001]: ../../stakeholder-analysis.md
 [QC-BC-001]: ../../../framework/qc/artifacts/qc-business-case.md
 [QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
 [a7d60a0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/a7d60a0ff5f21fe76224c3663ba32f75a1af658e

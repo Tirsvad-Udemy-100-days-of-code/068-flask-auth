@@ -4,12 +4,13 @@
 | Key | Value |
 | --- | --- |
 | ID | TM-001 |
-| CrossReference | [BC-001], [SA-001], [PP-001] |
+| CrossReference | [BC-001], [SA-001], [PP-001], [MIL-009] |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [4a5ddde] |
+| 2026-11-11 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [4a5ddde] |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the row for MIL-009, the row for the wiki and the review records of the baseline; set the domain of BC-001 and PP-001 to education; added MIL-009 to the downstream links | [01f769b] |
 
 ---
 
@@ -23,9 +24,9 @@ updated whenever an artifact instance is created or reviewed.
 
 | Artifact Instance | Type | Language | Domain | Upstream (Backward Link) | Downstream (Forward Link) | Last Reviewed (RC-ID) |
 | --- | --- | --- | --- | --- | --- | --- |
-| [BC-001] | BC | en | it | - | [SA-001], [PP-001] | [RC-008] |
+| [BC-001] | BC | en | education | - | [SA-001], [PP-001], [MIL-009] | [RC-029] |
 | [SA-001] | SA | en | it | [BC-001] | [PP-001] | [RC-011] |
-| [PP-001] | PP | en | it | [BC-001], [SA-001] | [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [MIL-006], [MIL-007], [MIL-008] | [RC-027] |
+| [PP-001] | PP | en | education | [BC-001], [SA-001] | [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [MIL-006], [MIL-007], [MIL-008], [MIL-009] | [RC-030] |
 | [MIL-001] | MIL | en | it | [PP-001] | - | [RC-003] |
 | [MIL-002] | MIL | en | it | [MIL-001] | - | [RC-004] |
 | [MIL-003] | MIL | en | it | [MIL-002] | [MIL-004] | [RC-005] |
@@ -34,7 +35,9 @@ updated whenever an artifact instance is created or reviewed.
 | [MIL-005] | MIL | en | it | [MIL-004] | [MIL-006] | [RC-016] |
 | [MIL-006] | MIL | en | it | [MIL-005] | [MIL-007] | [RC-019] |
 | [MIL-007] | MIL | en | it | [MIL-006] | [MIL-008] | [RC-023] |
-| [MIL-008] | MIL | en | it | [MIL-007] | - | [RC-026] |
+| [MIL-008] | MIL | en | it | [MIL-007] | [MIL-009] | [RC-026] |
+| [MIL-009] | MIL | en | education | [MIL-008], [BC-001], [PP-001] | - | [RC-031] |
+| Wiki | Wiki | en, da, ms | education | [BC-001], [MIL-003] | - | [RC-032], [RC-022], [RC-012], [RC-007] |
 
 ## Concern Coverage
 
@@ -54,7 +57,7 @@ updated whenever an artifact instance is created or reviewed.
 
 ## Coverage Notes
 
-Types with no instance yet have no row. `-` in Upstream means foundational, in Downstream that nothing is built on it yet.
+Types with no instance yet have no row. `-` in Upstream means foundational, in Downstream that nothing is built on it yet. The domain of BC-001, PP-001 and MIL-009 is `education` since MIL-009; the other documents keep the domain `it` they were accepted with (see the Open Issues of PP-001). The wiki row shows the domain of the project (a wiki is not an artifact with a `Domain` row). MIL-009 adds its row and the wiki row and changes no source, test, image or wiki file. The framework has no quality checklist for this matrix, so it has no review record of its own. The review records RC-029, RC-030, RC-031 and RC-032 are not rows themselves.
 
 ---
 
@@ -90,3 +93,12 @@ Types with no instance yet have no row. `-` in Upstream means foundational, in D
 [RC-027]: ./reviews/rc-027-pp.md
 [RC-024]: ./reviews/rc-024-pp.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd
+[MIL-009]: ../milestones/mil-009-framework-baseline.md
+[RC-007]: ./reviews/rc-007-wiki.md
+[RC-012]: ./reviews/rc-012-wiki.md
+[RC-022]: ./reviews/rc-022-wiki-step-5.md
+[RC-029]: ./reviews/rc-029-business-case-baseline.md
+[RC-030]: ./reviews/rc-030-project-plan-baseline.md
+[RC-031]: ./reviews/rc-031-milestone-009.md
+[RC-032]: ./reviews/rc-032-wiki-baseline.md
+[01f769b]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/01f769b62ce2a651438d8817ad6d09d4241204a5
