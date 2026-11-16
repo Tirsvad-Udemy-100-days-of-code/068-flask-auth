@@ -10,7 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [4a5ddde] |
-| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the row for MIL-009, the row for the wiki and the review records of the baseline; set the domain of BC-001 and PP-001 to education; added MIL-009 to the downstream links | pending |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the row for MIL-009, the row for the wiki and the review records of the baseline; set the domain of BC-001 and PP-001 to education; added MIL-009 to the downstream links | [01f769b] |
 
 ---
 
@@ -101,3 +101,4 @@ Types with no instance yet have no row. `-` in Upstream means foundational, in D
 [RC-030]: ./reviews/rc-030-project-plan-baseline.md
 [RC-031]: ./reviews/rc-031-milestone-009.md
 [RC-032]: ./reviews/rc-032-wiki-baseline.md
+[01f769b]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/01f769b62ce2a651438d8817ad6d09d4241204a5

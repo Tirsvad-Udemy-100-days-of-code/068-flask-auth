@@ -13,7 +13,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Deprecated | Jens Tirsvad Nielsen | S01 | Add MIL-007 styling with Bootstrap<br>Reviewed in RC-024: Go | [7bcae68] |
 | 2026-11-11 | Deprecated | Jens Tirsvad Nielsen | S01 | Add MIL-008 lecture look<br>Reviewed in RC-027: Go | [6bd7fad] |
-| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the baseline gateway MIL-009 with its schedule row, scope coverage, dependency, risk and Gantt entries; recorded the move of the end date, the domain, the open pull request #53, the prompt log, the traceability matrix and the CI in the Planning Assumptions and Open Issues; replaced the milestone column of the gateways that said `not yet synced` or only `(closed)` with links to their milestones on the git host; updated the Purpose; set the domain to education; reviewed in autonomous mode, not independent<br>Reviewed in RC-030: Go | pending |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the baseline gateway MIL-009 with its schedule row, scope coverage, dependency, risk and Gantt entries; recorded the move of the end date, the domain, the open pull request #53, the prompt log, the traceability matrix and the CI in the Planning Assumptions and Open Issues; replaced the milestone column of the gateways that said `not yet synced` or only `(closed)` with links to their milestones on the git host; updated the Purpose; set the domain to education; reviewed in autonomous mode, not independent<br>Reviewed in RC-030: Go | [01f769b] |
 
 ---
 
@@ -140,3 +140,4 @@ A No-Go on a gateway moves every later gateway by the rework time and may move t
 [ms-456]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/milestone/456
 [MIL-009]: ./milestones/mil-009-framework-baseline.md
 [ms-589]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/milestone/589
+[01f769b]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/01f769b62ce2a651438d8817ad6d09d4241204a5
