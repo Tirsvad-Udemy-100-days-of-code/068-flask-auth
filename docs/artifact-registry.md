@@ -14,8 +14,8 @@ document of a type. `Primary File` may contain a glob (e.g.
 | BC | Business Case | docs/business-case.md | 002 |
 | SA | Stakeholder Analysis | docs/stakeholder-analysis.md | 002 |
 | PP | Project Plan | docs/project-plan.md | 002 |
-| MIL | Milestone / Gateway | docs/milestones/*.md | 009 |
-| RC | SQA Review Record | docs/sqa/reviews/rc-*.md | 029 |
+| MIL | Milestone / Gateway | docs/milestones/*.md | 010 |
+| RC | SQA Review Record | docs/sqa/reviews/rc-*.md | 033 |
 | TM | Traceability Matrix | docs/sqa/traceability-matrix.md | 002 |
 | ADR | Architecture Decision Record | docs/adr/adr-*.md | 0002 |
 
@@ -29,7 +29,7 @@ exists once, in that language, under its normal name (`business-case.md`); the
 | Setting | Value |
 | --- | --- |
 | PO language | en |
-| PO domain | it |
+| PO domain | education |
 | High-level register | IT Executive English |
 | Technical register | IT Professional English |
 | Wiki languages | en, da, ms (`framework/process/wiki.md`) |
@@ -43,6 +43,7 @@ reviewer can see at once which professional vocabulary a document uses.
 | Domain | Meaning |
 | --- | --- |
 | it | Software and IT |
+| education | Education, teaching and learning (a course exercise project) |
 | medical | Healthcare and medical devices |
 | construction | Construction and civil engineering |
 
@@ -51,6 +52,18 @@ reviewer can see at once which professional vocabulary a document uses.
 | BC, KPI, PP, MIL | IT Executive English | Yes |
 | SA, BMC, BPMN, UCD, US, UC, SSD, DM, RA, GOV, DICT | IT Professional English | Yes |
 | OC, SD, DCD, ERD, TP, AD, ADR, TM, RC, QC, source code | IT Professional English | No |
+
+## Tools
+
+Settings of the tools the framework's scripts use. Each organisation sets its own.
+
+| Setting | Value |
+| --- | --- |
+| PlantUML server | https://plantuml.tirsystem.com/ |
+
+`framework/scripts/render-diagrams.sh` reads `PlantUML server` when neither `--server`
+nor the environment variable `PLANTUML_URL` is given. The diagram text is sent to that
+server, so name one your organisation trusts.
 
 ## Notes
 

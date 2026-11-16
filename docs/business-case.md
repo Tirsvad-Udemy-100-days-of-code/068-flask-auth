@@ -4,15 +4,16 @@
 | Key | Value |
 | --- | --- |
 | ID | BC-001 |
-| CrossReference | [SA-001] |
+| CrossReference | [SA-001], [PP-001], [MIL-009] |
 | Language | en |
-| Domain | it |
+| Domain | education |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version<br>Reviewed in RC-001: Go | [4a5ddde] |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 | Add the working Flask application to scope (objective 6)<br>Reviewed in RC-008: Go | [a7d60a0] |
+| 2026-11-11 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version<br>Reviewed in RC-001: Go | [4a5ddde] |
+| 2026-11-11 | Deprecated | Jens Tirsvad Nielsen | S01 | Add the working Flask application to scope (objective 6)<br>Reviewed in RC-008: Go | [a7d60a0] |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added objective 7, success criterion 6, a scope item, an out-of-scope item, a risk and two constraints for the baseline milestone MIL-009; set the PO domain to education; reviewed in autonomous mode, not independent<br>Reviewed in RC-029: Go | pending |
 
 ---
 
@@ -40,6 +41,7 @@ A single repository can show what each lecture step produces (a screenshot) and 
 4. Provide project configuration (`pyproject.toml`, Python `.gitignore`, `Doxyfile`) that a later coding phase can use unchanged.
 5. Keep a traceable history: one branch and pull request per milestone.
 6. Deliver a working Flask authentication application (lecture steps 1 to 7) under `src/` with pytest tests under `tests/`.
+7. Bring the finished project to the common baseline of the framework: the adopted framework release, a README that lists only the documents of the repository, project URL and licence metadata, the editor settings of the baseline, an `.env.example` in the framework's form that also lists the environment variables of the program, and a traceability matrix that covers the documents ([MIL-009]).
 
 ## Scope
 
@@ -52,11 +54,13 @@ A single repository can show what each lecture step produces (a screenshot) and 
 - `pyproject.toml` (Python 3.13 or newer, pytest), Python `.gitignore`, `Doxyfile`, documented `.venv` setup with `python -m pip install --upgrade pip`.
 - The Flask application for lecture steps 1 to 7 in `src/flask_auth/`, with pytest tests in `tests/`.
 - A local opengrep scan before each push.
+- The baseline milestone [MIL-009]: the framework release, the README without the private framework files in its appendix, project URL and licence metadata, `.editorconfig`, `.env.example`, an updated traceability matrix, review records and a review of the wiki. It changes no behaviour of the program.
 
 ### Out of Scope
 
 - Reproducing the lecture's video or course material beyond short descriptions and own screenshots.
 - Publishing the course resource archive in the repository.
+- Any change to `src/`, `tests/`, `docs/images/` or the wiki pages in the baseline milestone [MIL-009]. That milestone starts the program on no public address, retakes no screenshot and runs the tests only.
 
 ## Expected Benefits
 
@@ -83,6 +87,7 @@ The project supports the participant's learning goal in the bootcamp and the pra
 | 3 | Repository metadata | Description and at least 5 topics set | Host API response |
 | 4 | Review | Every artifact `Accepted` with a `Go` review | `RC-*` records |
 | 5 | Security scan | 0 opengrep findings before each push | opengrep output |
+| 6 | The baseline milestone is done (objective 7) | `framework/scripts/check-readme.sh`, `check-languages.sh` and `check-editorconfig.sh` exit with code 0, `python -m pytest` passes, 100 % of the continuous integration (CI) checks of the pull request of [MIL-009] pass | The script exit codes and the pull request status on the git host |
 
 ## Risks
 
@@ -93,17 +98,20 @@ The project supports the participant's learning goal in the bootcamp and the pra
 | A token leaks into the repository | Credential exposure | Tokens are read from `.env` outside the repository, never printed, never committed |
 | Translations drift from English | Inconsistent wiki | English is authoritative; same page set; `check-languages.sh` |
 | Screenshots show personal data | Privacy loss | Use test data only |
+| The documents of the baseline milestone [MIL-009] change documents that were accepted earlier, and an AI stand-in for S01 reviews them | A defect is missed because the review is not independent | Every review record of the baseline says `Mode: autonomous, not independent`, `src/` and `tests/` are not changed, the tests run before and after, and the end-of-run summary lists the reviews for challenge |
 
 ## Assumptions
 
 - S01 is Product Owner, developer and reviewer.
-- The Product Owner domain language is English, domain IT.
+- The Product Owner (PO) language is English; the PO domain is education since [MIL-009] (it was information technology (IT) until then; the documents that [MIL-009] does not change keep the domain `it`, see the Open Issues of [PP-001]).
 - The git host wiki is enabled and the organisation holds `TOKEN_FOR_GITEA_WIKI`.
 - Docker is available on the host.
 
 ## Constraints
 
 - Duration: the whole project is complete by 2026-11-16 (start 2026-11-11).
+- The baseline milestone [MIL-009] starts 2026-11-16 and is finished within one week, by 2026-11-23, so the end date of the plan moves from 2026-11-16 to 2026-11-23. An AI stand-in for S01 reviews and accepts the changed documents.
+- The program has no secret in the repository: the secret key and the database address are read from the environment variables `SECRET_KEY` and `DATABASE_URI` at run time, and `.env.example` holds empty placeholders only.
 - Python 3.13 or newer; a local `.venv`; pytest for tests; constants in `constants.py` when code is written.
 - Doxygen comments in any source code.
 - Documents live under `docs/`; application code lives under `src/` and tests under `tests/`.
@@ -132,3 +140,5 @@ Proceed — the scope is small, and the lecture content is already available.
 [SA-001]: ./stakeholder-analysis.md
 [4a5ddde]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/4a5ddde2e1eacea3ee7b76655c4d51953e89c6fd
 [a7d60a0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/068-flask-auth/commit/a7d60a0ff5f21fe76224c3663ba32f75a1af658e
+[PP-001]: ./project-plan.md
+[MIL-009]: ./milestones/mil-009-framework-baseline.md
